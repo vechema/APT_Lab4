@@ -162,7 +162,7 @@ public class TestWebsite {
 		we.sendKeys(users.get(index));
 		we = wd.findElement(By.name(password));
 		we.clear();
-		we.sendKeys("Not the password");
+		we.sendKeys(pws.get(index).toUpperCase());
 		we.submit();		
 		WebElement result = wd.findElement(By.xpath(h2xPath));
 		String output = result.getText();
@@ -174,7 +174,7 @@ public class TestWebsite {
 		we.sendKeys(users.get(index));
 		we = wd.findElement(By.name(password));
 		we.clear();
-		we.sendKeys("Not the password");
+		we.sendKeys(pws.get(index).toUpperCase());
 		we.submit();		
 		result = wd.findElement(By.xpath(h2xPath));
 		output = result.getText();
