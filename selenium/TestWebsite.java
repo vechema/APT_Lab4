@@ -101,15 +101,10 @@ public class TestWebsite {
 	 * Login test - incorrect, login three times wrong then wait one minute
 	 * I found this to never happen
 	 */
-	@Ignore
+	@Test
 	public void login04() {
 		
-		try {
-			Thread.sleep(10*1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		wait10Secs();
 		int index = 0;
 		wd.get(url + login);
 		WebElement we;
@@ -147,6 +142,8 @@ public class TestWebsite {
 		result = wd.findElement(By.xpath(h2xPath));
 		output = result.getText();
 		assertEquals("Wait for 60 seconds before trying to login again", output);
+		
+		wait10Secs();
 	}
 	
 	/**
@@ -156,12 +153,7 @@ public class TestWebsite {
 	@Test
 	public void login05() {
 
-		try {
-			Thread.sleep(10*1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		wait10Secs();
 		int index = 1;
 		wd.get(url + login);
 		WebElement we;
@@ -187,6 +179,8 @@ public class TestWebsite {
 		result = wd.findElement(By.xpath(h2xPath));
 		output = result.getText();
 		assertEquals("Wait for 10 seconds before trying to login again", output);
+		
+		wait10Secs();
 	}
 	
 	@Test
@@ -271,6 +265,15 @@ public class TestWebsite {
 	public double getTemp(String s)
 	{
 		return Double.parseDouble(s.substring(s.indexOf('=') + 2, s.indexOf("Celsius")-1));
+	}
+
+	private void wait10Secs() {
+		try {
+			Thread.sleep(10*1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@AfterClass

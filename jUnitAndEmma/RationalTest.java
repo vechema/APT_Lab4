@@ -35,7 +35,7 @@ public class RationalTest extends TestCase {
 	}
 
 	@Ignore
-	public void testRoot() {
+	public void Root() {
 		Rational s = new Rational(1, 4);
 		Rational sRoot = null;
 		try {
